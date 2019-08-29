@@ -1,11 +1,12 @@
 <div class="messageBoard">
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput class="inputBox" placeholder="Message Board" 
+      <input matInput class="inputBox"          placeholder="Message Board" 
         value="{{messageBoardText}}" 
         (click)="openDialog()"
+        readonly="isReadOnly"
        />
-       
+
        <a href="javascript:void(0)"   *ngIf="showMoreToggle" 
         (click)="openDialog()">..Show more
       </a>

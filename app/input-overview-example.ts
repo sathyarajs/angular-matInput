@@ -21,12 +21,17 @@ export class InputOverviewExample {
   };
   messageBoardText = this.messageBoard.message;
   showMoreToggle: boolean = false;
+  isReadOnly: boolean = true;
   textLength: number;
 
   ngOnInit() {
     this.textLength = this.textLength || 20;
     if(this.messageBoardText.length > this.textLength) {
-      this.showMoreToggle = true;
+      this.showMoreToggle = true;      
+    }
+    else if(this.messageBoardText === '') {
+      this.isReadOnly = false;
+      this.showMoreToggle = false;
     }
     else {
       this.showMoreToggle = false;
