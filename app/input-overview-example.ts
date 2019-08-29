@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface DialogData {
@@ -20,6 +20,18 @@ export class InputOverviewExample {
     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
   };
   messageBoardText = this.messageBoard.message;
+  showMoreToggle: boolean = false;
+  textLength: number;
+
+  ngOnInit() {
+    this.textLength = this.textLength || 20;
+    if(this.messageBoardText.length > this.textLength) {
+      this.showMoreToggle = true;
+    }
+    else {
+      this.showMoreToggle = false;
+    }
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ReadMoreContentDialog, {
@@ -30,6 +42,8 @@ export class InputOverviewExample {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.messageBoardText = result;
+
+      this.messageBoardText.length > this.textLength ? this.showMoreToggle = true: this.showMoreToggle = false
     });
   }
 }

@@ -15,3 +15,7 @@
 .messageBoard .inputBox {
   cursor: pointer;
 }
+
+.messageBoard a {
+  color:blue;
+}

@@ -5,7 +5,10 @@
         value="{{messageBoardText}}" 
         (click)="openDialog()"
        />
-       <a *ngIf="showMoreToggle">..Show more</a>
+       
+       <a href="javascript:void(0)"   *ngIf="showMoreToggle" 
+        (click)="openDialog()">..Show more
+      </a>
     </mat-form-field>
   </form>
 
