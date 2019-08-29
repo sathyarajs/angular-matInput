@@ -11,3 +11,7 @@
 .messageBoard {
   font-size: 12px;
 }
+
+.messageBoard .inputBox {
+  cursor: pointer;
+}

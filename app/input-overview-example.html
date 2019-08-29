@@ -1,15 +1,16 @@
 <div class="messageBoard">
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Message Board" 
+      <input matInput class="inputBox" placeholder="Message Board" 
         value="{{messageBoardText}}" 
         (click)="openDialog()"
-        (keyup)="openDialog()"
        />
+       <a *ngIf="showMoreToggle">..Show more</a>
     </mat-form-field>
   </form>
-  <li *ngIf="message">
-    You chose: <i>{{message}}</i>
+
+  <li *ngIf="messageBoardText">
+    You chose: <i>{{messageBoardText}}</i>
   </li>
 </div>
 
