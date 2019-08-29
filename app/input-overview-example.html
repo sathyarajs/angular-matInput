@@ -1,7 +1,11 @@
 <div class="messageBoard">
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Message Board" value="{{messageBoardText}}">
+      <input matInput placeholder="Message Board" 
+        value="{{messageBoardText}}" 
+        (click)="openDialog()"
+        (keyup)="openDialog()"
+       />
     </mat-form-field>
   </form>
   <li *ngIf="message">
