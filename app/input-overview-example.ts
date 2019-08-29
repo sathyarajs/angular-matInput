@@ -14,7 +14,24 @@ export interface DialogData {
   templateUrl: 'input-overview-example.html',
 })
 export class InputOverviewExample {
-  messageBoardText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";
+  constructor(public dialog: MatDialog) {}
+
+  public messageBoard = {
+    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+  };
+  messageBoardText = this.messageBoard.message;
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ReadMoreContentDialog, {
+      width: '250px',
+      data: {message: this.messageBoardText}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.messageBoardText = result;
+    });
+  }
 }
 
 

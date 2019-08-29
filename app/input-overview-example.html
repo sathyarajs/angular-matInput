@@ -4,6 +4,9 @@
       <input matInput placeholder="Message Board" value="{{messageBoardText}}">
     </mat-form-field>
   </form>
+  <li *ngIf="message">
+    You chose: <i>{{message}}</i>
+  </li>
 </div>
 
 
