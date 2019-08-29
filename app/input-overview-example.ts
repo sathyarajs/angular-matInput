@@ -21,20 +21,22 @@ export class InputOverviewExample {
   };
   messageBoardText = this.messageBoard.message;
   showMoreToggle: boolean = false;
-  isReadOnly: boolean = true;
+  isReadOnly: boolean = false;
   textLength: number;
 
   ngOnInit() {
     this.textLength = this.textLength || 20;
     if(this.messageBoardText.length > this.textLength) {
-      this.showMoreToggle = true;      
+      this.showMoreToggle = true;
+      this.isReadOnly = true;
     }
     else if(this.messageBoardText === '') {
-      this.isReadOnly = false;
       this.showMoreToggle = false;
+      this.isReadOnly = false;
     }
     else {
       this.showMoreToggle = false;
+      this.isReadOnly = true;
     }
   }
 
@@ -46,9 +48,16 @@ export class InputOverviewExample {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.messageBoardText = result;
-
-      this.messageBoardText.length > this.textLength ? this.showMoreToggle = true: this.showMoreToggle = false
+      if(result) {
+        this.messageBoardText = result;
+        this.isReadOnly = false;
+        this.messageBoardText.length > this.textLength ? this.showMoreToggle = true: this.showMoreToggle = false;
+      }
+      else {
+        this.messageBoardText = '';
+        this.isReadOnly = false;
+        this.showMoreToggle = false;
+      }
     });
   }
 }

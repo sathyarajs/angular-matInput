@@ -12,10 +12,6 @@
   font-size: 12px;
 }
 
-.messageBoard .inputBox {
-  cursor: pointer;
-}
-
 .messageBoard a {
   color:blue;
 }
