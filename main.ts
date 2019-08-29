@@ -9,7 +9,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
 
-import {InputOverviewExample} from './app/input-overview-example';
+import {InputOverviewExample, ReadMoreContentDialog} from './app/input-overview-example';
 
 @NgModule({
   imports: [
@@ -21,8 +21,8 @@ import {InputOverviewExample} from './app/input-overview-example';
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [InputOverviewExample],
-  declarations: [InputOverviewExample],
+  entryComponents: [InputOverviewExample, ReadMoreContentDialog],
+  declarations: [InputOverviewExample, ReadMoreContentDialog],
   bootstrap: [InputOverviewExample],
   providers: []
 })
